@@ -27,6 +27,7 @@ export const Head = () => (
         name="description"
         content="The religion, politics, and ideas of important people"
       />
+      <link rel="shortcut icon" href="/images/icons/letter-logo.png" />
     </NextjsHead>
   </>
 );

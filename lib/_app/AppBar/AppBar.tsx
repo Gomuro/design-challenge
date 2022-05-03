@@ -1,32 +1,60 @@
+import {
+  AppBar as MuiAppBar,
+  Container,
+  IconButton,
+  Typography,
+} from '@mui/material';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { FaSearch } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import s from './AppBar.module.scss';
 import Link from 'next/link';
-import React from 'react';
 
 export const AppBar = () => {
-  return (
-    <nav style={{ backgroundColor: '#F9EBEA' }}>
-      <section>
-        <div>
-          <Link passHref href="/">
-            <a>
-              <Image
-                src="/images/logo.svg"
-                width={250}
-                height={30}
-                alt="Hollowverse"
-                layout="fixed"
-              />
-            </a>
-          </Link>
-        </div>
+  const [displaySearch, setDisplaySearch] = useState(false);
 
-        <div>
-          {/* Search input */}
-          <div>
-            <input placeholder="Search for a celebrity" type="search" />
+  return (
+    <MuiAppBar
+      elevation={1}
+      color="transparent"
+      position="static"
+      className={s.AppBar}
+    >
+      <Container maxWidth="md" className={s.container}>
+        <div className={s.logo}>
+          <div style={{ display: displaySearch ? 'block' : 'none' }}>
+            <div title="Google search results" className="gcse-search" />
+          </div>
+
+          <div style={{ display: displaySearch ? 'none' : 'block' }}>
+            <Link passHref href="/">
+              <a>
+                <Image
+                  src="/images/logo.svg"
+                  width={250}
+                  height={30}
+                  alt="Hollowverse"
+                />
+                <Typography variant="body2" className={s.subtitle}>
+                  Important people and facts
+                </Typography>
+              </a>
+            </Link>
           </div>
         </div>
-      </section>
-    </nav>
+
+        <div className={s.search}>
+          <IconButton
+            aria-label="Search"
+            onClick={() => setDisplaySearch(!displaySearch)}
+            style={{ opacity: displaySearch ? 0.5 : 1 }}
+            size="large"
+          >
+            {displaySearch ? <AiOutlineClose /> : <FaSearch />}
+          </IconButton>
+        </div>
+      </Container>
+    </MuiAppBar>
   );
 };

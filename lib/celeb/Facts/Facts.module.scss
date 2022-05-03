@@ -1,0 +1,18 @@
+@import 'lib/components/common';
+
+.Facts {
+  .separator {
+    text-align: center;
+    margin-top: $s8;
+    border-radius: 4px;
+    background-color: #4cfde838;
+  }
+
+  .minorSeparator {
+    margin-top: $s4;
+    margin-bottom: $s4;
+    border-radius: 4px;
+    background-color: #fbc9546f;
+    
+  }
+}

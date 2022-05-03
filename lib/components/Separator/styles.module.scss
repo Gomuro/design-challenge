@@ -1,0 +1,22 @@
+@import '/lib/components/common.scss';
+
+.Separator {
+  background-color: $lessEmphasis300;
+  padding: $s4;
+  margin-top: $s8;
+
+
+  &.major {
+    padding: $s4;
+    min-height: $s16;
+    margin-top: $s16;
+  }
+
+  &.minor {
+    height: $s2;
+  }
+
+  .title {
+    margin-top: $s4;
+  }
+}

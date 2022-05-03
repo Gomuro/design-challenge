@@ -1,0 +1,62 @@
+@import '/lib/components/common';
+
+.Fact {
+  padding: $s16;
+  margin-top: $s16;
+
+  .footer,
+  .header {
+    & p, & a {
+      color: $lessEmphasis500;
+      font-size: 125%;
+      text-align: center;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    a + a {
+      margin-left: $s16;
+    }
+  }
+
+  .tags {
+    margin-top: $s8;
+    display: flex;
+
+    p {
+      color: $lessEmphasis500;
+      font-size: 85%;
+    }
+
+    p + p {
+      margin-left: $s8;
+    }
+  }
+
+  .quote {
+    blockquote {
+        margin-top: $s2;
+        margin-bottom: $s2;
+        padding: $s2;
+        border-top: $s2 solid $borderColor;
+        border-bottom: $s2 solid $borderColor;
+        font-size: 75%;
+        font-style: italic;
+        border-radius: $s4; 
+      p {
+        font-size: 110%;
+      }
+
+      p + p {
+        margin-top: $s8;
+      }
+    }
+  }
+}

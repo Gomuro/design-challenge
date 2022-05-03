@@ -1,25 +1,47 @@
+import { Chip, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useCelebContext } from '~/lib/components/StaticPropsContextProvider';
+import s from './TagCollection.module.scss';
 
 export const TagCollection = () => {
   const tags = useCelebContext().celeb.tags!;
 
   return (
-    <div style={{ backgroundColor: '#E8F8F5' }}>
-      <div>
+    <Container maxWidth="lg" className={s.TagCollection}>
+      <Container>
         {tags.regular.map((t) => (
-          <div key={t.tag.name}>{t.tag.name}</div>
+          <Chip
+            key={t.tag.name}
+            label={t.tag.name}
+            className={s.tag}
+            variant="outlined"
+          />
         ))}
-      </div>
+      </Container>
 
       {tags.lowConfidence.length > 0 && (
+        <Container maxWidth="lg" className={s.lowConfidence}>         
         <div>
-          <p>Maybe</p>
+          <Typography 
+          variant="h4" 
+          component="p"
+          className={s.tag}
+          display="inline"
+          >
+            Maybe
+          </Typography>
           {tags.lowConfidence.map((t) => (
-            <div key={t.tag.name}>{t.tag.name}</div>
+            <Chip
+              key={t.tag.name}
+              label={t.tag.name}
+              className={s.tag}
+              variant="outlined"
+            />
+
           ))}
         </div>
+        </Container>
       )}
-    </div>
+    </Container>
   );
 };

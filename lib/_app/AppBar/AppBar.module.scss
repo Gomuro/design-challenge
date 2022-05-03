@@ -1,0 +1,32 @@
+@import '/lib/components/common.scss';
+
+.AppBar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    height: 100px;
+
+    .container {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .logo {
+        flex: 1;
+  
+        a {
+          text-decoration: none;
+        }
+  
+        .subtitle {
+          color: $lessEmphasis;
+        }
+      }
+  
+      .search {
+        flex: 0;
+        position: relative;
+        z-index: 100;
+    }
+}

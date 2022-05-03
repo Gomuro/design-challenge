@@ -1,53 +1,58 @@
-import Link from 'next/link';
+import { Container, Typography } from '@mui/material';
+import { fil } from 'date-fns/locale';
+import Image from 'next/image';
 import React from 'react';
+import Link from '~/lib/components/Link';
 import { useCelebContext } from '~/lib/components/StaticPropsContextProvider';
 import { Fact as TFact } from '~/lib/components/types';
+import s from './Fact.module.scss';
 
 export const Fact: React.FC<{ value: TFact }> = ({ value }) => {
+
   const {
     celeb: { name },
   } = useCelebContext();
 
   return (
-    <div>
-      <div>
-        <p>{value.date}</p>
+    <Container maxWidth="md" className={s.Fact}>
+      <div className={s.header}>
+        <Typography>{value.date}</Typography>
       </div>
 
-      <div>
+      <div className={s.body}>
         {(value.type === 'quote' && (
-          <div>
-            <p>
+          <div className={s.quote}>
+            <Typography className={s.context}>
               {value.context}, {name} said
-            </p>
+            </Typography>
 
-            <blockquote>
-              <p>{value.quote}</p>
+            <blockquote className={s.content}>
+              <Typography>{value.quote}</Typography>
             </blockquote>
           </div>
         )) ||
           (value.type == 'fact' && (
-            <div>
-              <p>{value.content}</p>
+            <div className={s.quote}>
+              <Typography>{value.content}</Typography>
             </div>
           ))}
       </div>
-
-      <div>
+     
+      <div className={s.tags}>
         {value.tags.map((t) => {
           return (
-            <p key={t.tag.name}>
+            <Typography key={t.tag.name}>
               # {t.isLowConfidence && 'Possibly '}
               {t.tag.name}
-            </p>
+            </Typography>
           );
         })}
       </div>
 
-      <div>
+      <div className={s.footer}>
         <Link href={value.source}>Source</Link>
         <Link href={value.forumLink}>Forum link</Link>
       </div>
-    </div>
+    </Container>
   );
 };

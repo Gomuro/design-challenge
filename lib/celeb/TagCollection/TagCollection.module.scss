@@ -1,0 +1,47 @@
+@import '/lib/components/common';
+
+.TagCollection{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: $s8;
+    margin-bottom: $s8;
+    padding: $s4;
+    border-radius: 35px;
+    background-color: #00aa997c;
+    .tag{
+        margin: $s1 $s1 $s1 $s1;
+        padding: $s2;
+        border-radius: 4px;
+        background-color: #00aa997c;
+        color: #fff;
+        font-size: $s4;
+        font-weight: 500;
+        cursor: pointer;
+        &:hover{
+            background-color: #00a8a8;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+
+        }
+
+    }
+    .lowConfidence {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: $s4;
+        margin-bottom: $s4;
+        &, .tag{
+            color: #fff;
+        }
+        p{
+            font-size: $s4;
+            font-weight: 500;
+            color: #000;
+        }
+    }
+}
